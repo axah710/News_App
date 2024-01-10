@@ -15,10 +15,7 @@ class NewsService {
       List<dynamic> articles = jsonData["articles"];
       List<ArticleModel> articleList = [];
       for (var article in articles) {
-        ArticleModel articleModel = ArticleModel(
-            title: article["title"],
-            img: article["urlToImage"],
-            description: article["description"]);
+        ArticleModel articleModel = ArticleModel.fromJson(article);
         articleList.add(articleModel);
       }
       return articleList;

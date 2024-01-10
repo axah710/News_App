@@ -9,7 +9,8 @@ import 'package:news_app/views/article_view.dart';
 
 class ArticleViewBuilder extends StatefulWidget {
   const ArticleViewBuilder({
-    super.key, required this.category,
+    super.key,
+    required this.category,
   });
   final String category;
 
@@ -21,7 +22,7 @@ class _ArticleViewBuilderState extends State<ArticleViewBuilder> {
   Future<List<ArticleModel>>? future;
   @override
   void initState() {
-    future = NewsService(Dio()).getTopHeadlines(categoryName:widget.category );
+    future = NewsService(Dio()).getTopHeadlines(categoryName: widget.category);
     super.initState();
   }
 
@@ -35,11 +36,13 @@ class _ArticleViewBuilderState extends State<ArticleViewBuilder> {
             articleList: snapshot.data!,
           );
         } else if (snapshot.hasError) {
-          return const SliverToBoxAdapter(
-            child: DataHasError(),
+          return const SliverFillRemaining(
+            child: Center(
+              child: DataHasError(),
+            ),
           );
         } else {
-          return const SliverToBoxAdapter(
+          return const SliverFillRemaining(
             child: Center(
               child: DataIsLoading(),
             ),
