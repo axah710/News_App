@@ -1,6 +1,8 @@
 # news_app
 
 A new Flutter project.
+Developed a news app with UI design, API integration, and backend functionality. Implemented features such as category
+navigation, data retrieval, and error handling
 
 ## Getting Started
 
